@@ -1,0 +1,45 @@
+@import '../config/colors';
+
+.zebra-striped-background(
+  @stripe-color: @primary-color;
+  @background-color: @background-color;
+  @angle: -(1turn / 8);
+  @stripe-width: 1em
+) {
+  background-image+: repeating-linear-gradient(
+                       @angle,
+                       @stripe-color,
+                       @stripe-color @stripe-width,
+                       @background-color @stripe-width,
+                       @background-color (@stripe-width * 2)
+                     );
+}
+
+.crossed-background(
+  @first-stripe-color: @primary-color;
+  @second-stripe-color: @secondary-color;
+  @background-color: @background-color;
+  @angle: -(1turn / 8);
+  @stripe-width: 1em
+) {
+  .zebra-striped-background(
+    @stripe-color: @first-stripe-color;
+    @background-color: transparent;
+    @angle: @angle;
+    @stripe-width: @stripe-width
+  );
+  .zebra-striped-background(
+    @stripe-color: @second-stripe-color;
+    @background-color: @background-color;
+    @angle: (@angle + (1turn / 4));
+    @stripe-width: @stripe-width
+  );
+}
+
+.approxi-stripes {
+  .crossed-background(
+    @first-stripe-color: fade(@primary-color, 75%);
+    @second-stripe-color: fade(@secondary-color, 75%);
+    @stripe-width: 1rem
+  );
+}

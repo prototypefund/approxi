@@ -1,0 +1,21 @@
+@import 'colors';
+
+@input-focus: {
+  color: @focus-color;
+  border-color: @focus-color;
+  caret-color: @focus-color;
+
+  &::placeholder {
+    color: @focus-color;
+  }
+};
+
+@input-error: {
+  color: @error-color;
+  border-color: @error-color;
+  caret-color: @error-color;
+
+  &::placeholder {
+    color: @error-color;
+  }
+};

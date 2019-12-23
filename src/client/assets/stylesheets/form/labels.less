@@ -1,0 +1,27 @@
+@import '../config/colors';
+
+label,
+.approxi-label {
+  display: block;
+  margin: 1em 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: @text-color;
+
+  &.approxi-label--required {
+    color: @text-color;
+  }
+
+  &.approxi-label--invalid {
+    color: @error-color;
+  }
+
+  &.approxi-label--focus {
+    color: @focus-color;
+  }
+
+  &.approxi-label--stackable {
+    display: inline-block;
+    width: 18%;
+  }
+}

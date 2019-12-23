@@ -1,0 +1,59 @@
+@import '../config/colors';
+@import '../config/input';
+@import '../config/shadows';
+
+input[type="text"],
+input[type="number"],
+.approxi-input {
+  display: block;
+  appearance: textfield;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.3em 0;
+  padding: 0.3em 0.1em;
+  border: 0;
+  border-bottom: 2px solid @decoration-color;
+  outline: 0;
+  box-shadow: none;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: @text-color;
+
+  &::placeholder {
+    color: @inactive-color;
+  }
+
+  &:required {
+    border-color: @focus-color;
+  }
+
+  &:focus,
+  &.approxi-input--focus {
+    @input-focus();
+  }
+
+  &:invalid,
+  &.approxi-input--invalid {
+    @input-error();
+
+    &:focus {
+      @input-error();
+    }
+  }
+
+  &.approxi-input--full {
+    display: block;
+    width: 100%;
+    font-size: 1.75rem;
+  }
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+textarea {
+  resize: vertical;
+}

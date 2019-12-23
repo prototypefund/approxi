@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://approxi.io/schemas/surveys/stats.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "transform": [
+        "trim",
+        "toLowerCase"
+      ]
+    },
+    "count" : {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0
+    },
+    "means": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": null,
+      "additionalItems": false
+    },
+    "rssPercentiles": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "items": {
+        "type": "number"
+      },
+      "default": null,
+      "additionalItems": false
+    },
+    "rssTop": {
+      "type": "array",
+      "maxItems": 99,
+      "items": {
+        "type": "number"
+      },
+      "default": [],
+      "additionalItems": false
+    }
+  },
+  "required": [
+    "id",
+    "count",
+    "means",
+    "rssPercentiles",
+    "rssTop"
+  ],
+  "additionalProperties": false
+}

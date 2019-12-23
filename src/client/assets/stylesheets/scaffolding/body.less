@@ -1,0 +1,72 @@
+@import '../config/colors';
+
+html {
+  background-color: @white;
+  font-family: "PT Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+    color: @text-color;
+}
+
+// Retina
+@media screen and (min-resolution: 1.25dppx), /* The standard way */
+       screen and (min-resolution: 120dpi),
+       screen and (min-device-pixel-ratio: 1.25),
+       screen and (-webkit-min-device-pixel-ratio: 1.25) {
+}
+
+::-moz-selection {
+  background: @blue;
+  color: @white;
+  text-shadow: none;
+}
+
+::selection {
+  background: @blue;
+  color: @white;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid @decoration-color;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  image-rendering: optimizeQuality;
+}
+
+wbr {
+  display: none;
+}

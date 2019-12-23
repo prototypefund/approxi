@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://approxi.io/schemas/surveys/index.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "transform": [
+        "trim",
+        "toLowerCase"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "transform": [
+        "trim"
+      ],
+      "default": ""
+    },
+    "explanation": {
+      "type": "string",
+      "transform": [
+        "trim"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "transform": [
+        "trim"
+      ]
+    },
+    "range": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        },
+        {
+          "type": "number",
+          "minimum": -9007199254740991,
+          "maximum": 9007199254740991
+        }
+      ],
+      "additionalItems": false,
+      "default": [0, 0]
+    },
+    "step": {
+      "type": "number",
+      "stepRange": {
+        "$data": "/range"
+      }
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "transform": [
+              "trim"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "transform": [
+              "trim"
+            ]
+          },
+          "value": {
+            "type": "number",
+            "minimum": {
+              "$data": "/range/0"
+            },
+            "maximum": {
+              "$data": "/range/1"
+            }
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "default": []
+    },
+    "format": {
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "type": "string",
+          "transform": [
+            "trimLeft"
+          ]
+        },
+        "suffix": {
+          "type": "string",
+          "transform": [
+            "trimRight"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "title",
+    "range",
+    "values"
+  ],
+  "additionalProperties": false
+}

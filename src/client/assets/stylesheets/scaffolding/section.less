@@ -1,0 +1,47 @@
+@import '../config/colors';
+@import '../config/shadows';
+
+.approxi-section {
+  margin: 1rem 0;
+  max-width: 40rem;
+  padding: 1rem;
+  box-shadow: @high-shadow;
+  color: @gray;
+  background-color: @white;
+
+  @media screen and (min-width: 40rem) {
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+  }
+
+  &--hero {
+    margin-top: 5rem;
+    font-size: 1.2rem;
+    color: lighten(@text-color, 20%);
+  }
+
+  &--glossy {
+    .zebra-striped-background(
+      @stripe-color: fade(@primary-color, 15%);
+      @background-color: fade(@background-color, 15%)
+    );
+    background-color: fade(@background-color, 75%);
+  }
+
+  &__footer {
+    margin: 3em -1rem -1rem;
+    padding: 1em;
+    border-top: 1px solid @decoration-color;
+    background-color: fade(@decoration-color, 15%);
+    font-size: 0.8rem;
+    color: lighten(@text-color, 15%);
+
+    @media screen and (min-width: 40rem) {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

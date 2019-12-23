@@ -1,0 +1,45 @@
+@import '../config/colors';
+
+.approxi-footer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.approxi-section.approxi-footer {
+  margin-top: 3em;
+}
+
+.approxi-footer__affiliate-banner {
+  margin-left: auto;
+  max-width: 50%;
+}
+
+.approxi-footer__link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & + & {
+    margin-left: 1em;
+  }
+
+  &-item {
+    font-size: 0.8rem;
+    margin-bottom: 0.5em;
+
+    &:before {
+      content: '/';
+      margin: 0 0.25em;
+      font-weight: 700;
+      color: @secondary-color;
+    }
+
+    a {
+      color: @text-color;
+
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+}

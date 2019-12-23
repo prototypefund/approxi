@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://approxi.io/schemas/surveys/feed.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "transform": [
+        "trim",
+        "toLowerCase"
+      ]
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": []
+    }
+  },
+  "required": [
+    "values"
+  ],
+  "additionalProperties": false
+}

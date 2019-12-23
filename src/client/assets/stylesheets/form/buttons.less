@@ -1,0 +1,41 @@
+@import '../config/colors';
+@import '../config/shadows';
+
+button,
+input[type="button"],
+input[type="submit"],
+.approxi-button {
+  display: block;
+  appearance: none;
+  box-sizing: border-box;
+  margin: 1em 0;
+  padding: 0.8em 0.8em 0.6em;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  color: @white;
+  background-color: @secondary-color;
+  cursor: pointer;
+  user-select: none;
+
+  &:active,
+  &:hover {
+    background-color: lighten(@secondary-color, 5%);
+  }
+
+  &:focus {
+  }
+
+  &:disabled {
+    background-color: @inactive-color;
+  }
+
+  &.approxi-button--full {
+    width: 100%;
+  }
+}
