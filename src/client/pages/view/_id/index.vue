@@ -24,6 +24,7 @@ export default {
   validate({ params: { id } }) {
     return surveyIdRegEx.test(id);
   },
+  layout: 'view-id',
   async asyncData({ params, $axios }) {
     const playlist = params.id.split(',');
     const sid = playlist.shift();

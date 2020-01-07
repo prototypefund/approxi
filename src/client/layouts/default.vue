@@ -21,10 +21,7 @@
       </div>
     </nav>
     <nuxt />
-    <footer
-      v-if="$route.name !== 'view-id'"
-      class="approxi-section approxi-section--glossy approxi-footer"
-    >
+    <footer class="approxi-section approxi-section--glossy approxi-footer">
       <ul class="approxi-footer__link-list">
         <li class="approxi-footer__link-list-item">
           <nuxt-link to="/">
@@ -61,6 +58,5 @@
 </template>
 
 <style lang="less">
-@import '~assets/stylesheets/scaffolding/main';
 @import '~assets/stylesheets/form/buttons';
 </style>
