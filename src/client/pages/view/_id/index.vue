@@ -3,7 +3,7 @@
     :survey="survey"
     :stats="stats"
     :enabled="!loading"
-    :show-more="playlist && playlist.length"
+    :show-next="playlist && playlist.length"
     :sticky-header="true"
     :show-footer="true"
     @input="submit"
@@ -27,7 +27,7 @@ export default {
   async asyncData({ params, $axios }) {
     const playlist = params.id.split(',');
     const sid = playlist.shift();
-    const survey = await $axios.$get(`surveys/${sid}`);
+    const survey = await $axios.$get(`https://approxi.appspot.com/api/surveys/${sid}`);
     return {
       survey,
       playlist
@@ -101,7 +101,7 @@ export default {
       this.disconnectSocket();
       this.loading = true;
       try {
-        this.survey = await this.$axios.$get(`surveys/${sid}`);
+        this.survey = await this.$axios.$get(`https://approxi.appspot.com/api/surveys/${sid}`);
         this.submitted = false;
       } catch (error) {
         alert(error);
@@ -111,7 +111,7 @@ export default {
     async submit(values) {
       this.loading = true;
       try {
-        this.stats = await this.$axios.$post(`surveys/${this.survey.id}/feed`, {
+        this.stats = await this.$axios.$post(`https://approxi.appspot.com/api/surveys/${this.survey.id}/feed`, {
           id: this.survey.id,
           values
         });
